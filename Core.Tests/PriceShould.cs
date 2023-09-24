@@ -55,11 +55,23 @@ namespace Core.Tests
         }
 
         [Fact]
-        public void VerifyPrice()
+        public void VerifyIncorrectPrice()
         {
             //Arrange & Act
             Price incorrectPrice = GetIncorrectlyWrittenPrice();
  
+            //Assert
+            Assert.Equal(2, incorrectPrice.Pounds.Amount);
+            Assert.Equal(8, incorrectPrice.Shillings.Amount);
+            Assert.Equal(0, incorrectPrice.Pennies.Amount);
+        }
+
+        [Fact]
+        public void VerifyCorrectPrice()
+        {
+            //Arrange & Act
+            Price incorrectPrice = GetCorrectlyWrittenPrice();
+
             //Assert
             Assert.Equal(2, incorrectPrice.Pounds.Amount);
             Assert.Equal(8, incorrectPrice.Shillings.Amount);
@@ -71,7 +83,7 @@ namespace Core.Tests
             return new Price(1, 25, 36);
         }
 
-        private Price GetCorrectPrice()
+        private Price GetCorrectlyWrittenPrice()
         {
             return new Price(2, 8, 0);
         }
