@@ -25,7 +25,6 @@ namespace Core.Abstraction
             int higherAmountUnits = Amount / AmountInHigherNominal;
             Amount -= (higherAmountUnits * AmountInHigherNominal);
             return higherAmountUnits;
-
         }
     }
 }

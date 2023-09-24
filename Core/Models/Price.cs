@@ -22,22 +22,21 @@ namespace Core.Models
         }
 
         public Price() : this(0, 0, 0) { }
-
         public Price(int shillings, int pennies) : this(0, shillings, pennies) { }
-
-
         public Price(int pennies) : this(0, 0, pennies) { }
 
         public void VerifyPrice()
         {
-            //Pennies
             int extraShillingsFromPennies = Pennies.VerifyAmount();
-
             Shillings.Amount += extraShillingsFromPennies;
 
             int extraPoundsFromShillings = Shillings.VerifyAmount();
-
             Pounds.Amount += extraPoundsFromShillings;
+        }
+
+        public override string ToString()
+        {
+            return $"Test";
         }
     }
 }
